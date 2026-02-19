@@ -7,7 +7,6 @@
 #include <syscalls/taskcount.h>
 #include <syscalls/taskinfo.h>
 #include <syscalls/mmap.h>
-#include <display.h>
 #include <ansii.h>
 
 // this should be in another file but the error squiggles are annoying as owt
