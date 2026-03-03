@@ -196,6 +196,5 @@ int main(void) {
     } else {
         printf(RGB_FG(120, 200, 120) "%llu Tasks in-queue\n" RESET, found);
     }
-
-    _exit(0);
+    return 0;
 }
