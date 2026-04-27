@@ -9,7 +9,7 @@ LIB_DIR = sysroot/lib
 LIBC = $(LIB_DIR)/blibc.a
 CRT0 = $(LIB_DIR)/start.o
 
-BLIBC_REPO = https://codeberg.org/Bleed-Kernel/blibc.git
+BLIBC_REPO = https://github.com/Bleed-Kernel/blibc.git
 BLIBC_DIR  = external/blibc
 
 COMMON_CFLAGS = \
