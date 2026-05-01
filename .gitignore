@@ -1,3 +1,4 @@
 sysroot/
 external/
 bin/
+.vscode/settings.json
