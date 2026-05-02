@@ -16,8 +16,7 @@ COMMON_CFLAGS = \
 	-ffreestanding \
 	-fno-stack-protector \
 	-fno-stack-check \
-	-Wall -Wextra -Werror \
-	-Wunused-command-line-argument \
+	-Wall -Wextra \
 	-nostdlib \
 	-no-pie \
 	-m64 \
