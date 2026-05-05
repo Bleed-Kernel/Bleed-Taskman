@@ -1,6 +1,6 @@
 ELF_TARGET_64 = taskman
 
-CC 	:= x86_64-elf-gcc
+CC 	:= gcc
 
 ELF_BIN_DIR_64 = bin
 ELF_OBJ_DIR_64 = $(ELF_BIN_DIR_64)/obj
