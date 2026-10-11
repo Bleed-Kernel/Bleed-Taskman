@@ -1,6 +1,13 @@
 ELF_TARGET_64 = taskman
 
+UNAME_S := $(shell uname -s)
+UNAME_M := $(shell uname -m)
+
+ifeq ($(UNAME_S)$(UNAME_M),Darwinarm64)
+CC 	:= x86_64-elf-gcc
+else
 CC 	:= gcc
+endif
 
 ELF_BIN_DIR_64 = bin
 ELF_OBJ_DIR_64 = $(ELF_BIN_DIR_64)/obj
@@ -22,7 +29,7 @@ COMMON_CFLAGS = \
 	-m64 \
 	-Iinclude \
 	-Isysroot/include \
-	-Isysroot/libc \
+	-Isysroot/include/bleed \
 	-nostdinc
 
 LDFLAGS = \
@@ -46,7 +53,7 @@ $(ELF_TARGET_64): blibc $(ELF_OBJS_64)
 		-o $(ELF_BIN_DIR_64)/$(ELF_TARGET_64) \
 		$(CRT0) \
 		$(ELF_OBJS_64) \
-		-l:blibc.a
+		$(LIBC)
 
 $(ELF_OBJ_DIR_64)/%.o: src/%.c
 	@mkdir -p $(dir $@)

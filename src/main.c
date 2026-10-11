@@ -4,12 +4,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <syscalls/exit.h>
+#include <syscalls.h>
 #include <scheduler.h>
-#include <syscalls/taskcount.h>
-#include <syscalls/taskinfo.h>
-#include <syscalls/mmap.h>
-#include <syscalls/munmap.h>
 #include <ansii.h>
 #include <ipc.h>
 
