@@ -1,4 +1,5 @@
-ELF_TARGET_64 = taskman
+# taskv. the binary keeps its old name for now
+ELF_TARGET_64 = taskv
 
 UNAME_S := $(shell uname -s)
 UNAME_M := $(shell uname -m)
@@ -17,7 +18,7 @@ LIBC = $(LIB_DIR)/blibc.a
 CRT0 = $(LIB_DIR)/start.o
 
 BLIBC_REPO = https://github.com/Bleed-Kernel/blibc.git
-BLIBC_DIR  = external/blibc
+BLIBC_DIR  ?= ../blibc
 
 COMMON_CFLAGS = \
 	-ffreestanding \
@@ -59,9 +60,9 @@ $(ELF_OBJ_DIR_64)/%.o: src/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(COMMON_CFLAGS) -c $< -o $@
 
-blibc: $(LIBC)
+$(ELF_OBJS_64): blibc
 
-$(LIBC):
+blibc:
 	@echo "[BLIBC] Preparing blibc"
 	@if [ ! -d "$(BLIBC_DIR)" ]; then \
 		git clone $(BLIBC_REPO) $(BLIBC_DIR); \
