@@ -242,8 +242,8 @@ static void frame_meter(const char *label, const meter_part_t *parts, size_t cou
 
 static char state_letter(task_state_t state) {
     switch (state) {
-        case TASK_RUNNING: return 'R';
-        case TASK_READY:   return 'X';
+        case TASK_RUNNING: return 'X';
+        case TASK_READY:   return 'R';
         case TASK_BLOCKED: return 'B';
         case TASK_STOPPED: return 'S';
         case TASK_ZOMBIE:  return 'Z';
