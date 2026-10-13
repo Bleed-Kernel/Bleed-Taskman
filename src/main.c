@@ -242,8 +242,8 @@ static void frame_meter(const char *label, const meter_part_t *parts, size_t cou
 
 static char state_letter(task_state_t state) {
     switch (state) {
-        case TASK_RUNNING: return 'X';
-        case TASK_READY:   return 'R';
+        case TASK_RUNNING: return 'R';
+        case TASK_READY:   return 'X';
         case TASK_BLOCKED: return 'B';
         case TASK_STOPPED: return 'S';
         case TASK_ZOMBIE:  return 'Z';
@@ -464,7 +464,7 @@ static void draw_row(const row_t *row) {
     format_cpu_time(time, sizeof(time), row->usage.cpu_time);
 
     frame_text(color, " %5llu %5llu %-4s ", row->info.id, row->info.ppid, kernel ? "kern" : "user");
-    frame_text(state_letter(row->info.state) == 'R' ? C_HOT : color, "%c", state_letter(row->info.state));
+    frame_text(state_letter(row->info.state) == 'X' ? C_HOT : color, "%c", state_letter(row->info.state));
     frame_text(color, " %5s %5s %7s %9s ", cpu, share, res, time);
     frame_text(kernel ? C_DIM : C_BOLD, "%s", row->info.name);
     frame_endline(ON_BLACK);
