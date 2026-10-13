@@ -463,7 +463,7 @@ static void draw_row(const row_t *row) {
     format_bytes(res, sizeof(res), bytes);
     format_cpu_time(time, sizeof(time), row->usage.cpu_time);
 
-    frame_text(color, " %5llu %5llu %-4s ", row->info.id, row->info.ppid, kernel ? "kern" : "user");
+    frame_text(color, " %5llu %5llu %-4s ", row->info.id, row->info.ppid, kernel ? "SUPV" : "USER");
     frame_text(state_letter(row->info.state) == 'X' ? C_HOT : color, "%c", state_letter(row->info.state));
     frame_text(color, " %5s %5s %7s %9s ", cpu, share, res, time);
     frame_text(kernel ? C_DIM : C_BOLD, "%s", row->info.name);
